@@ -33,7 +33,10 @@
     <li role="presentation"><a href="{{ route('clone/hardware', $asset->id) }}">{{ trans('admin/hardware/general.clone') }}</a></li>
       @endcan
       @can('audit', \App\Models\Asset::class)
-      <li role="presentation"><a href="{{ route('asset.audit.create', $asset->id)  }}">{{ trans('general.audit') }}</a></li>
+    <li role="presentation"><a href="{{ route('asset.audit.create', $asset->id)  }}">{{ trans('general.audit') }}</a></li>
+     @endcan
+      @can('getreceipt', \App\Models\Asset::class)
+    <li role="presentation"><a href="{{ route('hardware/receipt', $asset->id)  }}">{{ trans('general.receipt') }}</a></li>
      @endcan
   </ul>
 </div>
