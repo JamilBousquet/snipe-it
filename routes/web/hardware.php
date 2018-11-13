@@ -103,6 +103,11 @@ Route::group(
             'as' => 'delete/assetfile',
             'uses' => 'AssetFilesController@destroy'
         ]);
+		
+		Route::get('{assetId}/receipt', [
+			'as' => 'hardware/receipt',
+			'uses' => 'AssetCheckoutController@getReceipt'
+		]);
 
         Route::post(
             'bulkedit',

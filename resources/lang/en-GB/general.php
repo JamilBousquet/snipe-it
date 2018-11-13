@@ -159,6 +159,7 @@
     'qty'		            => 'QTY',
     'quantity'		        => 'Quantity',
     'ready_to_deploy'		=> 'Ready to Deploy',
+	'recipt'				=> 'Receipt',
     'recent_activity'		=> 'Recent Activity',
     'remove_company'        => 'Remove Company Association',
     'reports'				=> 'Reports',
