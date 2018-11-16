@@ -49,6 +49,10 @@ return array(
         'file_delete_success'   => "Your file has been been successfully deleted",
         'file_delete_error'      => "The file was unable to be deleted",
     ),
+	
+	'receipt' => array(
+		'notCheckout'			=> 'Asset not assigned to a user; No receipt to be displayed.',
+	),
 
 
     'delete' => array(

@@ -20,6 +20,7 @@ return array(
     'lock_passwords'		=> 'Login details cannot be changed on this installation.',
     'manager' 				=> 'Manager',
     'managed_locations'     => 'Managed Locations',
+	'mobile'				=> 'Mobile',
     'name' 					=> 'Name',
     'notes'                 => 'Notes',
     'password_confirm' 		=> 'Confirm Password',

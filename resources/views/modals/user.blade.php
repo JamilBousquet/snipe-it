@@ -43,7 +43,33 @@
                         <div class="col-md-4 col-xs-12"><label for="modal-username">{{ trans('admin/users/table.username') }}:</label></div>
                         <div class="col-md-8 col-xs-12 required"><input type='text' name="username" id='modal-username' class="form-control"></div>
                     </div>
+					
+					<div class="dynamic-form-row">
+                        <div class="col-md-4 col-xs-12"><label for="modal-email">{{ trans('admin/users/table.email') }}:</label></div>
+                        <div class="col-md-8 col-xs-12 required"><input type='text' name="email" id='modal-email' class="form-control"></div>
+                    </div>
+					
+					<div class="dynamic-form-row">
+                        <div class="col-md-4 col-xs-12"><label for="modal-phone">{{ trans('admin/users/table.phone') }}:</label></div>
+                        <div class="col-md-8 col-xs-12 required"><input type='text' name="phone" id='modal-phone' class="form-control"></div>
+                    </div>
 
+					<div class="dynamic-form-row">
+                        <div class="col-md-4 col-xs-12"><label for="modal-mobile">{{ trans('admin/users/table.mobile') }}:</label></div>
+                        <div class="col-md-8 col-xs-12"><input type='text' name="mobile" id='modal-mobile' class="form-control"></div>
+                    </div>
+					
+					@if ($is_checkout=='true' || $isset(is_checkout))
+					@include ('partials.forms.edit.location-select', ['translated_name' => trans('general.location'), 'fieldname' => 'location_id', 'hide_new' => 'true', 'required' => 'true'])
+					
+					@if (\App\Models\Company::canManageUsersCompanies())
+                    @include ('partials.forms.edit.company-select', ['translated_name' => trans('general.select_company'), 'fieldname' => 'company_id', 'required' => 'true'])
+					@endif
+				
+					@include ('partials.forms.edit.department-select', ['translated_name' => trans('general.department'), 'fieldname' => 'department_id'])
+					
+					@include ('partials.forms.edit.user-select', ['translated_name' => trans('admin/users/table.manager'), 'fieldname' => 'manager_id', 'hide_new' => 'true', 'required' => 'true'])
+					@endif
                     <div class="dynamic-form-row">
                         <div class="col-md-4 col-xs-12"><label for="modal-password">{{ trans('admin/users/table.password') }}:</label></div>
                         <div class="col-md-8 col-xs-12 required"><input type='password' name="password" id='modal-password' class="form-control">

@@ -4,13 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Exceptions\CheckoutNotAllowed;
 use App\Http\Controllers\CheckInOutRequest;
+use App\Http\Controllers\AssetsController;
 use App\Http\Requests\AssetCheckoutRequest;
 use App\Models\Asset;
 use App\Models\Location;
 use App\Models\User;
+use App\Models\Department;
+use App\Models\Company;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Fpdf;
 
 class AssetCheckoutController extends Controller
 {
@@ -79,6 +83,12 @@ class AssetCheckoutController extends Controller
             if ($request->has('expected_checkin')) {
                 $expected_checkin = $request->get('expected_checkin');
             }
+			
+			if ($request->has('note')) {
+			$asset->purpose = $request->input('note');
+			} else {
+			$asset->purpose = "";
+			}
 
             if ($asset->checkOut($target, $admin, $checkout_at, $expected_checkin, e($request->get('note')), $request->get('name'))) {
                 return redirect()->route("hardware.index")->with('success', trans('admin/hardware/message.checkout.success'));
@@ -114,7 +124,7 @@ class AssetCheckoutController extends Controller
 		///1. Is the asset assigned to a user? 
 		/// If not, return to asset page;
 		if (!$asset->assignedTo){
-			return AssetsController::show($assetId);
+			return redirect()->route('hardware.index')->with('error', trans('admin/hardware/message.receipt.notCheckout'));
 		} else {
 			$user = $asset->assignedTo;}
 		
@@ -238,7 +248,8 @@ class AssetCheckoutController extends Controller
 		Fpdf::Cell(0, $line_h, $return_cell4, 0, 1, "", true);
 		Fpdf::Ln();
 		
-		// Fpdf::Write($line_h, $asset);
+		// Fpdf::Write($line_h, $asset); check $asset (or $user) object properties;
+		///used for debuging
 
 
         //Save and show in browser [and "return void" or end];

@@ -47,6 +47,7 @@ class User extends SnipeModel implements AuthenticatableContract, CanResetPasswo
         'manager_id',
         'password',
         'phone',
+		'mobile',
         'state',
         'username',
         'zip',
@@ -84,6 +85,7 @@ class User extends SnipeModel implements AuthenticatableContract, CanResetPasswo
         'username',
         'notes',
         'phone',
+		'mobile',
         'jobtitle',
         'employee_num'
     ];

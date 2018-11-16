@@ -199,6 +199,13 @@
                     <td><a href="tel:{{ $user->phone }}">{{ $user->phone }}</a></td>
                   </tr>
                   @endif
+				  
+				  @if ($user->mobile)
+                  <tr>
+                    <td>{{ trans('admin/users/table.mobile') }}</td>
+                    <td><a href="tel:{{ $user->mobile }}">{{ $user->mobile }}</a></td>
+                  </tr>
+                  @endif
 
                   @if ($user->userloc)
                   <tr>

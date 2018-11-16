@@ -30,6 +30,7 @@ return array(
     'name'				=> 'Asset Name',
     'notes'				=> 'Notes',
     'order'				=> 'Order Number',
+	'purpose'			=> 'Purpose',
     'qr'				=> 'QR Code',
     'requestable'		=> 'Users may request this asset',
     'select_statustype'	=> 'Select Status Type',

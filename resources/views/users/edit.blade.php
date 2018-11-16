@@ -272,6 +272,15 @@
                     {!! $errors->first('phone', '<span class="alert-msg">:message</span>') !!}
                   </div>
                 </div>
+				
+				<!-- Mobile -->
+                <div class="form-group {{ $errors->has('mobile') ? 'has-error' : '' }}">
+                  <label class="col-md-3 control-label" for="mobile">{{ trans('admin/users/table.mobile') }}</label>
+                  <div class="col-md-4">
+                    <input class="form-control" type="text" name="mobile" id="mobile" value="{{ Input::old('mobile', $user->phone) }}" />
+                    {!! $errors->first('mobile', '<span class="alert-msg">:message</span>') !!}
+                  </div>
+                </div>
 
                   <!-- Address -->
                   <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }}">

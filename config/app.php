@@ -307,6 +307,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\SettingsServiceProvider::class,
         App\Providers\ValidationServiceProvider::class,
+		Codedge\Fpdf\FpdfServiceProvider::class, //Fpdf
 
 
         /*
@@ -369,6 +370,7 @@ return [
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'Image'     => Intervention\Image\ImageManagerStatic::class,
         'Carbon' => Carbon\Carbon::class,
+		'Fpdf' => Codedge\Fpdf\Facades\Fpdf::class,
 
 
     ],
